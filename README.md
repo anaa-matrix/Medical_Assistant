@@ -21,15 +21,15 @@ License
 
 # Install Dependencies
 
-*For Backend* - npm run dev
+*For Backend server application* - install node modules, nodemon,bcrypt,jsonwebtokens,express,mongoose,cloudinary,body-parser,cookie-parser,dotenv through the command 'npm i', make sure to change dev script to nodemon index.js to run the index.js file on any occuring changes
 
 ## Env Variables
 
 Make Sure to Create a config.env file in backend/config directory and add appropriate variables in order to use the app.
 
 *Essential Variables*  
-DATABASE_URL=  
-PORT =  
+DATABASE_URL=
+PORT = 
 fill each filed with your info respectively
 
 # ML Model
