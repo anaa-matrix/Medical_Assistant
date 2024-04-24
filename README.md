@@ -63,5 +63,5 @@ https://www.kaggle.com/datasets/ebrahimelgazar/doctor-specialist-recommendation-
 For running an interactive demo or sharing it with others, please run `main.ipynb` using Jupyter Notebook or Jupyter Lab.
 
 ```
-jupyter notebook main.ipynb
+jupyter notebook ML_Model/main.ipynb
 ```
