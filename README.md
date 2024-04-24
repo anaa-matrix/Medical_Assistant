@@ -32,6 +32,10 @@ DATABASE_URL=
 PORT = 
 fill each filed with your info respectively
 
+# UI
+![](gif.gif)  
+link to video: https://drive.google.com/drive/folders/1LpkBnP7-WG6gmWtiNvwOWhlquX8hNga_?usp=drive_link
+
 # ML Model
 ## Disease Prediction from Symptoms
 
