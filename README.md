@@ -12,12 +12,12 @@ License
 
 # Prerequisite
 
-1.  Must have basic knowledge of Node, React, Express, MongoDB . I have made tutorial on each technology on YouTube , make sure to check it out. *Links are Below respectively*
-2.  Node - https://youtu.be/BSO9C8Z-YV8
-3.  React - https://youtu.be/99kgUCIMboY
-4.  Express - https://youtu.be/teipbke8c4A\
-5.  MongoDB - https://youtu.be/AYDP1S5BbTo
-6.  RestApi - https://youtu.be/AhCSfuG9Jxw (optional)
+1. **Web Development Basics**: Understand frontend and backend development concepts.  
+2. **Machine Learning Fundamentals**: Learn supervised learning for disease prediction.  
+3. **Database Management**: Familiarize yourself with SQL or NoSQL databases.  
+4. **API Development**: Learn to create RESTful APIs for communication.  
+5. **Recommendation Systems**: Understand how to suggest doctors based on user data.  
+6. **Authentication & Authorization**: Implement user login/signup and session management.  
 
 # Install Dependencies
 
