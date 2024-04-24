@@ -1,6 +1,6 @@
 # Medz Cue | A Machine Learning Web Application
 
-Table of Content
+**Table of Content**
 Problem statment / Why this topic?
 Flow Chart / Archeticture
 Directory Tree
