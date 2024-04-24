@@ -44,3 +44,36 @@ CLOUDINARY_NAME
 CLOUDINARY_API_KEY  
 CLOUDINARY_API_SECRET  
 fill each filed with your info respectively
+
+# ML Model
+## Disease Prediction from Symptoms
+
+This project aims to utilize machine learning algorithms to predict diseases based on symptoms, determining the appropriate specialist needed. Additionally, it provides recommendations for doctors based on their ratings, availability, and geographical location, enhancing the accessibility and quality of healthcare services.
+
+### Algorithms Explored
+
+The following algorithms have been explored in code:
+
+- Logistic Regression
+- Decision Tree
+- Random Forest
+- SVM
+- Naive Bayes
+- K-Nearest Neighbors
+- Multilayer Perceptron
+
+# Dataset
+
+The dataset for this problem used with the `main.ipynb` script is downloaded from here:
+
+```
+https://www.kaggle.com/datasets/ebrahimelgazar/doctor-specialist-recommendation-system
+```
+
+## Interactive Demo
+
+For running an interactive demo or sharing it with others, please run `main.ipynb` using Jupyter Notebook or Jupyter Lab.
+
+```
+jupyter notebook main.ipynb
+```
