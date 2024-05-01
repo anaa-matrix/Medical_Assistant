@@ -1,35 +1,41 @@
-const Rating = require('../models/rating');
-const Doctor = require('../models/doctor');
+const Doctor = require('../models/Doctor');
+const Rating = require('../models/Rating');
 
-const giveRating = async (req, res) => {
-  try {
-    const { doctorId, rating, review } = req.body;
-    
-    // Check if the doctor exists
-    const doctor = await Doctor.findById(doctorId);
-    if (!doctor) {
-      return res.status(404).json({ error: 'Doctor not found' });
+const giveRatingToDoctor = async (req, res) => {
+    const { doctorId, ratingValue } = req.body;
+
+    // Check if the rating value is in the range of 1 to 5
+    if (ratingValue < 1 || ratingValue > 5) {
+        return res.status(400).json({ error: 'Rating value should be between 1 and 5' });
     }
 
-    // Create a new rating instance
-    const newRating = new Rating({
-      rating,
-      review
-    });
+    try {
+        const doctor = await Doctor.findById(doctorId);
+        if (!doctor) {
+            return res.status(404).json({ error: 'Doctor not found' });
+        }
 
-    // Save the new rating to the database
-    await newRating.save();
+        // Create or update the rating
+        let rating = await Rating.findOne({ doctor: doctorId });
+        if (!rating) {
+            rating = new Rating({ doctor: doctorId, value: ratingValue });
+        } else {
+            rating.value = ratingValue;
+        }
 
-    // Update the doctor's rating statistics
-    doctor.rating = (doctor.rating * doctor.numRatings + rating) / (doctor.numRatings + 1);
-    doctor.numRatings += 1;
-    await doctor.save();
+        await rating.save();
 
-    res.status(201).json({ message: 'Rating added successfully', rating: newRating });
-  } catch (error) {
-    console.error('Error giving rating:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
+        // Update the doctor's rating reference
+        doctor.rating = rating._id;
+        await doctor.save();
+
+        res.status(200).json({ message: 'Rating saved successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 };
 
-module.exports = giveRating;
+module.exports = {
+    giveRatingToDoctor
+};
