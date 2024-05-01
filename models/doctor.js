@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const doctoberSchema = new mongoose.Schema({
+const doctorSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -34,12 +34,12 @@ const doctoberSchema = new mongoose.Schema({
         required: true
     },
     rating: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'Rating'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Rating',
+        default: 0
     },
     image: {
         type: String,
-        required: true
     },
     schedule: {
         type: String,
@@ -57,8 +57,12 @@ const doctoberSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    password: {
+        type: String,
+        required: true
+    }
 });
 
-const Doctor = mongoose.model('Doctor', doctoberSchema);
+const Doctor = mongoose.model('Doctor', doctorSchema);
 
 module.exports = Doctor;
