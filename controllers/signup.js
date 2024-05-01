@@ -1,7 +1,7 @@
 const uploadToCloudinary = require('../config/cloudinary');
 const User = require('../models/user');
-const Doctor = require('../models/doctor');
-
+const Doctor = require('../models/Doctor');
+const bcrypt = require('bcryptjs');
 
 const doctorSignUp = async (req, res) => {
   try {
@@ -19,11 +19,11 @@ const doctorSignUp = async (req, res) => {
       availability,
       message,
       phoneNumber,
+      password,
     } = req.body;
-    const profilePic = req.files.profilePic; // Assuming req.files is an object containing the uploaded file
 
-    // Upload profile picture to Cloudinary
-    const imageUrl = await uploadToCloudinary(profilePic.tempFilePath);
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
 
     // Create a new doctor instance
     const newDoctor = new Doctor({
@@ -40,7 +40,7 @@ const doctorSignUp = async (req, res) => {
       availability,
       message,
       phoneNumber,
-      image: imageUrl,
+      password: hashedPassword,
     });
 
     // Save the new doctor to the database
@@ -54,7 +54,6 @@ const doctorSignUp = async (req, res) => {
   }
 };
 
-const bcrypt = require('bcryptjs');
 
 const userSignUp = async (req, res) => {
   try {
