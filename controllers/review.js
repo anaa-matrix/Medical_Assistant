@@ -21,4 +21,22 @@ const postReview = async (req, res) => {
   }
 };
 
-module.exports = postReview;
+const getReviewsOfDoctor = async (req, res) => {
+  try {
+      const { doctorId } = req.body;
+
+      // Find all reviews of the doctor
+      const reviews = await Review.find({ doctor: doctorId });
+      if (reviews.length === 0) {
+          return res.status(404).json({ error: 'No reviews found for this doctor' });
+      }
+
+      res.status(200).json({ reviews });
+  } catch (error) {
+      console.error('Error getting reviews:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+module.exports = { postReview, getReviewsOfDoctor};
